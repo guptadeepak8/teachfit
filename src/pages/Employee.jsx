@@ -43,8 +43,8 @@ function handleClick() {
           <OrgInfo about={about}/>
           </div>
           <div className="overflow-y-auto  scroll-smooth  w-3/4  h-screen no-scrollbar flex flex-col gap-2">
-          <DetailInfo/>
-          <OrgAbout/>
+          <DetailInfo about={about}/>
+          <OrgAbout about={about}/>
            
             <RecentJobs/>
           </div>

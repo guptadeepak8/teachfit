@@ -18,44 +18,44 @@ export default function OrgInfo({about}) {
         <div className="flex flex-col gap-1">
           <div className="flex items-center ">
             <MapPin className="h-5 w-5 mr-2 " />
-            <span className="text-lg font-medium">Mumbai</span>
+            <span className="text-lg font-medium">{about.location}</span>
           </div>
           <div className="flex items-center ">
             <Mail className="h-5 w-5 mr-2 " />
-            {about && <span className="text-lg font-medium">{about.email}</span> }
+             <span className="text-lg font-medium">{about.email}</span>
           </div>
           <div className="flex items-center ">
             <Phone className="h-5 w-5 mr-2 " />
-            <span className="text-lg font-medium">+221 83939 3939</span>
+            <span className="text-lg font-medium">{about.phoneNo}</span>
           </div>
           <div className="flex items-center ">
             <Link2 className="h-5 w-5 mr-2 " />
-            <span className="text-lg font-medium">http://universal.com</span>
+            <span className="text-lg font-medium">{about.collegeUrl}</span>
           </div>
           <div className="flex items-center">
             <Users className="h-5 w-5 mr-2" />
-            <span className="text-lg font-medium">500 Employees</span>
+            <span className="text-lg font-medium">{about.noOfEmployess} Employees</span>
           </div>
           <div className="flex items-center">
             <Briefcase className="h-5 w-5 mr-2" />
-            <span className="text-lg font-medium">Engineering College</span>
+            <span className="text-lg font-medium">{about.typeoforg} College</span>
           </div>
           <div className="flex items-center">
             <Calendar className="h-5 w-5 mr-2" />
-            <span className="text-lg font-medium">Established in 2001</span>
+            <span className="text-lg font-medium">Established in {about.establishedIn}</span>
           </div>
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-5">
        
         <div className="flex gap-2">
-        <Link to="https://linkdin.com" >
+        <Link to={about.Linkedin} >
             <FaLinkedin className="h-8 w-8  text-blue-600" />
           </Link>
-          <Link to="https://linkdin.com">
+          <Link to={about.facebook}>
             <FaFacebook className="h-8 w-8 text-blue-400" />
           </Link>
-          <Link to="https://linkdin.com">
+          <Link to={about.twitter}>
             <FaXTwitter  className="h-8 w-8 text-black" />
           </Link>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 
-export default function JobForm() {
+export default function CandidateForm() {
   const { register, handleSubmit, getValues } = useForm();
   const [step, setStep] = useState(1);
   const [personalInfo, setPersonalInfo] = useState({

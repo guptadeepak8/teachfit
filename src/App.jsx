@@ -10,7 +10,7 @@ function App() {
       <h2>Click buttons to go to pages</h2>
       <Link to='/candidate'className='py-10 px-20 hover:text-blue-500 '>candidate</Link>
       <Link to='/empolyee'className='py-10 px-20 hover:text-blue-500'>Empolyee</Link>
-      <Link to='/JobForm'className='py-10 px-20 hover:text-blue-500'>JobForm</Link>
+      <Link to='/cadidateform'className='py-10 px-20 hover:text-blue-500'>cadidateForm</Link>
       <Link to='/orgform'className='py-10 px-20 hover:text-blue-500'>orgForm</Link>
     </div>
   )

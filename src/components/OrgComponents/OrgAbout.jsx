@@ -3,7 +3,7 @@ import PerksCulture from './PerksCulture'
 import SectionHeading from '../ui/SectionHeading'
 import EmployeeTable from './EmployeeTable'
 
-export default function OrgAbout() {
+export default function OrgAbout({about}) {
   return (
     <div className="flex flex-col bg-white  rounded-lg  px-8 py-2 border-2 ">
     
@@ -16,8 +16,8 @@ export default function OrgAbout() {
 
       Universal College of Engineering is a prestigious institution offering diverse programs and fostering a culture of excellence. With state-of-the-art facilities and a commitment to student success, we provide a nurturing environment that encourages academic and personal growth.
       </span>
-       <PerksCulture/>
-       <EmployeeTable/>
+       <PerksCulture about={about}/>
+       <EmployeeTable about={about}/>
   </div>
   )
 }

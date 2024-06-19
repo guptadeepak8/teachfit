@@ -53,37 +53,7 @@ export default function OrgForm() {
     }
   }, [location.state]);
 
-  const [employees, setEmployees] = useState([
-    {
-      id: 1,
-      Ename: "",
-      Eemail: "",
-      Elinkedin: "",
-    },
-  ]);
 
-  const handleAddEmployee = () => {
-    setEmployees([
-      ...employees,
-      {
-        id: employees.length + 1,
-        Ename: "",
-        Eemail: "",
-        Elinkedin: "",
-      },
-    ]);
-  };
-
-  const handleEmployeeChange = (index, event) => {
-    const { name, value } = event.target;
-    const newEmployees = employees.map((employee, empIndex) => {
-      if (index === empIndex) {
-        return { ...employee, [name]: value };
-      }
-      return employee;
-    });
-    setEmployees(newEmployees);
-  };
 
   return (
     <div className="min-h-screen px-10 py-5">
@@ -160,6 +130,15 @@ export default function OrgForm() {
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
+                    id="location"
+                    label="Location"
+                    variant="outlined"
+                    fullWidth
+                    {...register("location", )}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextField
                     id="linked-in"
                     label="linkedin Url"
                     variant="outlined"
@@ -209,32 +188,24 @@ export default function OrgForm() {
                   <FormControlLabel
                     control={<Checkbox />}
                     label="Health Insurance "
-                    value={health}
-                    onChange={() => SetHealth((prev) => !prev)}
                     {...register("health")}
                   />
 
                   <FormControlLabel
                     control={<Checkbox />}
                     label="Team Outings "
-                    value={outings}
-                    onChange={() => SetOutings((prev) => !prev)}
                     {...register("outings")}
                   />
 
                   <FormControlLabel
                     control={<Checkbox />}
                     label="Free Snacks and Beverages "
-                    value={snacks}
-                    onChange={() => SetSnacks((prev) => !prev)}
                     {...register("snacks")}
                   />
 
                   <FormControlLabel
                     control={<Checkbox />}
                     label="Employee Wellness Programs "
-                    value={program}
-                    onChange={() => SetProgram((prev) => !prev)}
                     {...register("program")}
                   />
 
@@ -303,8 +274,7 @@ export default function OrgForm() {
                             name="Ename"
                             label="Name of Employee"
                             variant="outlined"
-                            value={employees.Ename}
-                            onChange={(e) => handleEmployeeChange(index, e)}
+                           {...register("Ename")} 
                             fullWidth
                           />
                         </Grid>
@@ -313,18 +283,16 @@ export default function OrgForm() {
                             name="Eemail"
                             label="Email of Employee"
                             variant="outlined"
-                            value={employees.Eemail}
-                            onChange={(e) => handleEmployeeChange(index, e)}
+                            {...register("Eemail")} 
                             fullWidth
                           />
                         </Grid>
                         <Grid item xs={6}>
                           <TextField
-                            name="Eemail"
-                            label="Email of Employee"
+                            name="linkedinUrl"
+                            label="linkdin Url"
                             variant="outlined"
-                            value={employees.Eemail}
-                            onChange={(e) => handleEmployeeChange(index, e)}
+                           {...register("ElinkedinUrl")}
                             fullWidth
                           />
                         </Grid>
