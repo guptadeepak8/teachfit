@@ -10,6 +10,7 @@ import DetailInfo from '../components/OrgComponents/DetailInfo';
 import OrgAbout from '../components/OrgComponents/OrgAbout';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import EmployeeTable from '../components/OrgComponents/EmployeeTable';
 
 
 export default function Employee() {

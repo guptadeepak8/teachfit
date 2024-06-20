@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 
 export default function CandidateForm() {
   const { register, handleSubmit, getValues } = useForm();
-  const [step, setStep] = useState(1);
   const [personalInfo, setPersonalInfo] = useState({
     fullName: "",
     email: "",
@@ -215,8 +214,7 @@ export default function CandidateForm() {
               label="Full Name*"
               name="fullName"
               placeholder="Full Name"
-              value={personalInfo.fullName}
-              onChange={(e) => handleInputChange(e)}
+              {...register("fullname")}
             />
 
             <Input

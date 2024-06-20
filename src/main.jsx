@@ -9,8 +9,9 @@ import OrgForm from './pages/OrgForm.jsx';
 import store from './store/store.js';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Employee from './pages/Employee.jsx';
+
 import CandidateForm from './pages/CandidateForm.jsx';
+import Employee from './pages/Employee.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -14,7 +14,7 @@ export default function OrgAbout({about}) {
       <div className="h-0.5 bg-slate-200 mt-3 px-5"></div>
       <span className='text-lg py-3 px-5 font-semibold text-slate-800'>
 
-      Universal College of Engineering is a prestigious institution offering diverse programs and fostering a culture of excellence. With state-of-the-art facilities and a commitment to student success, we provide a nurturing environment that encourages academic and personal growth.
+      {about.orgdes}
       </span>
        <PerksCulture about={about}/>
        <EmployeeTable about={about}/>

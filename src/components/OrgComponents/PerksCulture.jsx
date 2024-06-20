@@ -10,12 +10,14 @@ export default function PerksCulture({about}) {
           {about.health && 
             <li className="flex items-start gap-2 mb-2">
             <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
+            <span>Health Insurance</span>
           </li>
           }
 
           {about.outings && 
           <li className="flex items-start gap-2 mb-2">
           <Users className="h-5 w-5 text-blue-500 mt-1" />
+          <span>Team Outings</span>
         </li>
           }
         
@@ -23,6 +25,7 @@ export default function PerksCulture({about}) {
         
         <li className="flex items-start gap-2 mb-2">
           <Coffee className="h-5 w-5 text-brown-500 mt-1" />
+          <span>Free Snacks and Beverages</span>
         </li>
         }
 
@@ -30,6 +33,7 @@ export default function PerksCulture({about}) {
         
         <li className="flex items-start gap-2 mb-2">
           <Heart className="h-5 w-5 text-red-500 mt-1" />
+          <span>Empolyee Programs</span>
         </li>
         }
       </ul>

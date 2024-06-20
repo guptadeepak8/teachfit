@@ -12,17 +12,18 @@ import FormCard from "../components/ui/FormCard";
 import Line from "../components/ui/Line";
 import { TextareaAutosize } from "@mui/base/TextareaAutosize";
 import AddIcon from "@mui/icons-material/Add";
-import { updateAbout } from "../store/Slice/employeeSlice";
+import { addEmployee, updateAbout } from "../store/Slice/employeeSlice";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import OrgEmployeesForm from "../components/OrgComponents/OrgEmployeesForm";
 
 export default function OrgForm() {
 
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const location = useLocation();
-
+  const about = useSelector((state) => state.employeeData.about)
 
   const [health, SetHealth] = useState(false);
   const [outings, SetOutings] = useState(false);
@@ -47,9 +48,10 @@ export default function OrgForm() {
   useEffect(() => {
     if (location.state && location.state.about) {
       console.log(location.state.about);
-      const { name, email } = location.state.about;
+      const { name, email,phoneNo, } = location.state.about;
       setValue("name", name);
       setValue("email", email);
+      setValue
     }
   }, [location.state]);
 
@@ -68,6 +70,7 @@ export default function OrgForm() {
                 <Grid item xs={12}>
                   <TextField
                    variant="outlined"
+                   label="Organization Name"
                     fullWidth
                    type="text"
                     id="name"
@@ -77,7 +80,7 @@ export default function OrgForm() {
                 <Grid item xs={6}>
                   <TextField
                     id="email"
-                   
+                    label="Email"
                     variant="outlined"
                     fullWidth
                     {...register("email")}
@@ -261,64 +264,7 @@ export default function OrgForm() {
           </FormCard>
 
           <Line />
-          <FormCard>
-            <SectionHeading title="Employee" />
-            <FormContainer>
-              <div className="bg-slate-200 px-2 py-3">
-                {employees.map((data) => {
-                  return (
-                    <div className="mb-4" key={data.id}>
-                      <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                          <TextField
-                            name="Ename"
-                            label="Name of Employee"
-                            variant="outlined"
-                           {...register("Ename")} 
-                            fullWidth
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <TextField
-                            name="Eemail"
-                            label="Email of Employee"
-                            variant="outlined"
-                            {...register("Eemail")} 
-                            fullWidth
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <TextField
-                            name="linkedinUrl"
-                            label="linkdin Url"
-                            variant="outlined"
-                           {...register("ElinkedinUrl")}
-                            fullWidth
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <Button
-                            variant="outlined"
-                            startIcon={<AddIcon />}
-                            onClick={handleAddEmployee}
-                          >
-                            Save
-                          </Button>
-                        </Grid>
-                      </Grid>
-                    </div>
-                  );
-                })}
-              </div>
-              <Button
-                variant="contained  "
-                startIcon={<AddIcon />}
-                onClick={handleAddEmployee}
-              >
-                Add more Employees
-              </Button>
-            </FormContainer>
-          </FormCard>
+          <OrgEmployeesForm/>
 
           <Button
                 variant="contained  "
