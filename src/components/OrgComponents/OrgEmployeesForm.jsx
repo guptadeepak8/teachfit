@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FormCard from '../ui/FormCard';
 import { addEmployee, saveEmployee, removeEmployee } from '../../store/Slice/employeeSlice';
-import { useForm } from 'react-hook-form';
+import { useForm,useFieldArray } from 'react-hook-form';
 
 export default function OrgEmployeesForm() {
   const about = useSelector((state) => state.employeeData.about);
@@ -15,15 +15,29 @@ export default function OrgEmployeesForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'employees',
+  });
+
+
 
   const onSaveEmployee = (data, index) => {
     dispatch(saveEmployee({ index, employee: data.employees[index] }));
   };
 
   const onRemoveEmployee = (index) => {
+    remove(index)
     dispatch(removeEmployee(index));
+  };
+
+  const onAddEmployee = () => {
+    append({ Ename: '', Eemail: '', Elinkedin: '' });
+    dispatch(addEmployee({ Ename: '', Eemail: '', Elinkedin: '' }));
   };
 
   return (
@@ -88,15 +102,7 @@ export default function OrgEmployeesForm() {
         <Button
           variant="contained"
           startIcon={<AddIcon />}
-          onClick={() =>
-            dispatch(
-              addEmployee({
-                Ename: '',
-                Eemail: '',
-                Elinkedin: '',
-              })
-            )
-          }
+           onClick={onAddEmployee}
         >
           Add more Employees
         </Button>
